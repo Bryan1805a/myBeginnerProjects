@@ -22,6 +22,9 @@ class HobbiesApp:
         # Button to show selected
         tk.Button(root, text="Submit", command=self.show_selected).pack(pady=15)
         
+        # Button to clear all selected
+        tk.Button(root, text="Clear all", command=self.clear_selected).pack(pady=10)
+        
         # Label to display result
         self.result_label = tk.Label(root, text="", font=("Arial", 12))
         self.result_label.pack()
@@ -39,6 +42,12 @@ class HobbiesApp:
             self.result_label.config(text="You selected: " + ", ".join(hobbies))
         else:
             self.result_label.config(text="No hobbies selected.")
+            
+    def clear_selected(self):
+        self.music_var.set(False)
+        self.reading_var.set(False)
+        self.travel_var.set(False)
+        self.result_label.config(text="")
 
 root = tk.Tk()
 app = HobbiesApp(root)
